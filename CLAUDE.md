@@ -18,7 +18,7 @@ Use **Expo** (the officially recommended React Native framework) to scaffold and
 
 ### Project Setup
 
-Initialize with:
+Initialized with:
 
 ```sh
 npx create-expo-app@latest simple-react-native-app --template blank
@@ -26,16 +26,31 @@ npx create-expo-app@latest simple-react-native-app --template blank
 
 The `blank` template provides the most minimal starting point: a single `App.js` with a welcome screen.
 
-### Key Files (Expected)
+### Project Structure
 
-- `app.json` — Expo configuration (app name, platforms, icons)
-- `App.js` — Single entry point with minimal UI
-- `package.json` — Dependencies (expo, react, react-native)
-- `babel.config.js` — Babel preset for Expo
+The Expo app lives in the `simple-react-native-app/` subdirectory. All app-related commands should be run from there.
+
+```
+simple-react-native-app/
+├── App.js          — Root component with minimal UI
+├── index.js        — Entry point (registers App via registerRootComponent)
+├── app.json        — Expo configuration (app name, platforms, icons, splash)
+├── package.json    — Dependencies (expo ~55, react 19, react-native 0.83)
+├── assets/         — App icons, splash image, and favicon
+│   ├── icon.png
+│   ├── splash-icon.png
+│   ├── favicon.png
+│   ├── android-icon-foreground.png
+│   ├── android-icon-background.png
+│   └── android-icon-monochrome.png
+└── .gitignore      — Ignores node_modules, .expo, dist, native folders
+```
 
 ### Running the App
 
 ```sh
+cd simple-react-native-app
+
 # Install dependencies
 npm install
 
@@ -51,6 +66,8 @@ npx expo start --ios       # iOS (via Expo Go or simulator, macOS only)
 ### Build Commands
 
 ```sh
+cd simple-react-native-app
+
 npx expo export --platform web   # Production web build
 npx eas build --platform android # Android build (requires EAS)
 npx eas build --platform ios     # iOS build (requires EAS)
