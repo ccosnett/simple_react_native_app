@@ -1,10 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Linking, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text style={styles.title}>Simple React Native App ☘️ </Text>
+      <TouchableOpacity onPress={() => Linking.openURL('https://github.com/ccosnett')}>
+        <Text style={styles.link}>github.com/ccosnett</Text>
+      </TouchableOpacity>
       <StatusBar style="auto" />
     </View>
   );
@@ -16,5 +19,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 16,
+  },
+  link: {
+    fontSize: 16,
+    color: '#007AFF',
+    textDecorationLine: 'underline',
   },
 });
